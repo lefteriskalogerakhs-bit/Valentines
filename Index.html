@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="el">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Μια έκπληξη για σένα 💘</title>
+  <meta name="description" content="Μια μικρή έκπληξη για του Αγίου Βαλεντίνου." />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="wrap">
+    <!-- Builder (αν δεν υπάρχουν query params) -->
+    <section id="builder" class="card hidden">
+      <h1>Φτιάξε το link 💌</h1>
+      <p class="sub">Συμπλήρωσε τα πεδία και πάτα «Δημιουργία link». Μετά το στέλνεις.</p>
+
+      <form id="builderForm" class="form">
+        <label>
+          Προς (όνομα)
+          <input name="to" type="text" placeholder="π.χ. Nancy" required />
+        </label>
+
+        <label>
+          Από (όνομα)
+          <input name="from" type="text" placeholder="π.χ. Lefteris" required />
+        </label>
+
+        <label>
+          Μήνυμα
+          <textarea name="msg" rows="3" placeholder="π.χ. Θα γίνεις η Βαλεντίνα μου φέτος;" required></textarea>
+        </label>
+
+        <label>
+          Φωτογραφία (URL – προαιρετικό)
+          <input name="photo" type="url" placeholder="https://..." />
+        </label>
+
+        <button type="submit" class="btn primary">Δημιουργία link</button>
+      </form>
+
+      <div id="linkBox" class="linkbox hidden">
+        <div class="row">
+          <input id="finalLink" type="text" readonly />
+          <button id="copyBtn" class="btn">Αντιγραφή</button>
+        </div>
+        <p class="hint">Tip: Αν το ανοίξεις από εδώ, θα δεις ακριβώς τι θα δει κι εκείνη.</p>
+      </div>
+    </section>
+
+    <!-- Valentine Card (αν υπάρχουν query params) -->
+    <section id="valentine" class="card hidden">
+      <div class="top">
+        <div class="badge">💘 Αγ. Βαλεντίνου</div>
+        <h1 id="title">Μια έκπληξη για σένα</h1>
+        <p class="sub" id="subtitle"></p>
+      </div>
+
+      <div class="photoWrap" id="photoWrap">
+        <img id="photo" alt="Φωτογραφία" />
+        <div class="photoFallback" id="photoFallback">
+          <div class="hearts">💗 💞 💓 💖 💘</div>
+          <div class="small">Βάλε photo= στο link για να εμφανιστεί εικόνα</div>
+        </div>
+      </div>
+
+      <div class="msgBox">
+        <p class="fromLine" id="fromLine"></p>
+        <p class="msg" id="msg"></p>
+      </div>
+
+      <div class="question">
+        <h2 id="questionText">Θα γίνεις η Βαλεντίνα μου;</h2>
+        <div class="buttons" id="buttons">
+          <button id="yesBtn" class="btn primary">ΝΑΙ ❤️</button>
+          <button id="noBtn" class="btn danger">ΟΧΙ 🙃</button>
+        </div>
+      </div>
+
+      <div id="result" class="result hidden">
+        <h2 id="resultTitle">ΤΕΛΕΙΑ 😄</h2>
+        <p id="resultText">Το ήξερα. Έλα να το γιορτάσουμε!</p>
+        <button id="replayBtn" class="btn">Ξανά confetti</button>
+      </div>
+
+      <footer class="footer">
+        <span class="muted">Αν θες να φτιάξεις νέο link, άνοιξε τη σελίδα χωρίς παραμέτρους.</span>
+      </footer>
+    </section>
+  </main>
+
+  <!-- Confetti -->
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
